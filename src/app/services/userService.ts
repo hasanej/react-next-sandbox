@@ -15,6 +15,7 @@ export const userService = {
   login,
   // logout,
   register,
+  getUserData
   // getAll,
   // getById,
   // update,
@@ -31,4 +32,14 @@ async function login(email, password) {
 
 async function register(email, password) {
   await fetchWrapper.post(`${apiUrl}/register`, { email, password });
+}
+
+async function getUserData() {
+  // This is the ID for user named Eve
+  const id = "4";
+  
+  const userData = await fetchWrapper.get(`${apiUrl}/users/${id}`);
+
+  localStorage.setItem('isLoggedIn', "true");
+  localStorage.setItem('userData', JSON.stringify(userData));
 }
