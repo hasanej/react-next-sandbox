@@ -1,4 +1,3 @@
-// components/defaultNavItems.tsx
 import React from 'react';
 import {
   CalendarIcon,
@@ -7,32 +6,31 @@ import {
   UserGroupIcon
 } from '@heroicons/react/24/outline';
 
-// define a NavItem prop
 export type NavItem = {
   label: string;
   href: string;
   icon: React.ReactNode;
 };
 
-export const defaultNavItems: NavItem[] = [
+export const DefaultNavItems: NavItem[] = [
   {
     label: 'Dashboard',
     href: '/dashboard',
-    icon: <HomeIcon className='w-6 h-6' />,
+    icon: <HomeIcon className='w-6 h-6' />
   },
   {
-    label: 'Team',
-    href: '/team',
-    icon: <UserGroupIcon className='w-6 h-6' />,
+    label: 'User List',
+    href: '/userList',
+    icon: <UserGroupIcon className='w-6 h-6' />
   },
   {
     label: 'Projects',
     href: '/projects',
-    icon: <FolderIcon className='w-6 h-6' />,
+    icon: <FolderIcon className='w-6 h-6' />
   },
   {
     label: 'Calendar',
     href: '/calendar',
-    icon: <CalendarIcon className='w-6 h-6' />,
-  },
+    icon: <CalendarIcon className='w-6 h-6' />
+  }
 ];

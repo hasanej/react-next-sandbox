@@ -9,5 +9,4 @@ export const dashboardService = {
 async function getUserList() {
   const userList = await fetchWrapper.get(`${apiUrl}/users`);
   return userList;
-  // localStorage.setItem('userData', JSON.stringify(userData));
 }

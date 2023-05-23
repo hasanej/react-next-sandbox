@@ -3,7 +3,7 @@
 import Image from 'next/image';
 import classNames from 'classnames';
 import React, { PropsWithChildren, useState } from 'react';
-import { Bars3Icon, PowerIcon } from '@heroicons/react/24/outline';
+import { PowerIcon } from '@heroicons/react/24/outline';
 
 import Sidebar from './components/Sidebar';
 

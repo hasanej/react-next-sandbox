@@ -1,4 +1,3 @@
-// components/Sidebar.tsx
 import Link from 'next/link';
 import React from 'react';
 import classNames from 'classnames';
@@ -7,7 +6,7 @@ import {
   ChevronDoubleRightIcon,
 } from '@heroicons/react/24/outline';
 
-import { defaultNavItems, NavItem } from './defaultNavItems';
+import { DefaultNavItems, NavItem } from './DefaultNavItems';
 
 // 👇 props to get and set the collapsed state from parent component
 type Props = {
@@ -17,7 +16,7 @@ type Props = {
 
 const Sidebar = ({
   collapsed,
-  navItems = defaultNavItems,
+  navItems = DefaultNavItems,
   setCollapsed
 }: Props) => {
   // 👇 use the correct icon depending on the state.
@@ -57,29 +56,31 @@ const Sidebar = ({
         </div>
 
         {/* nav items part */}
-        <nav className="flex-grow">
+        <nav className='flex-grow'>
           <ul
             className={classNames({
-              "my-2 flex flex-col gap-2 items-stretch": true,
+              'my-2 flex flex-col gap-2 items-stretch': true,
             })}
           >
-            {navItems.map((item, index) => {
-              return (
-                <li
-                  key={index}
-                  className={classNames({
-                    "text-indigo-100 hover:bg-sky-800 flex": true, //colors
-                    "transition-colors duration-300": true, //animation
-                    "rounded-md p-2 mx-3 gap-4 ": !collapsed,
-                    "rounded-full p-2 mx-3 w-10 h-10": collapsed,
-                  })}
-                >
-                  <Link href={item.href} className="flex gap-2">
-                    {item.icon} <span>{!collapsed && item.label}</span>
-                  </Link>
-                </li>
-              );
-            })}
+            {
+              navItems.map((item, index) => {
+                return (
+                  <li
+                    key={index}
+                    className={classNames({
+                      'text-indigo-100 hover:bg-sky-800 flex': true, //colors
+                      'transition-colors duration-300': true, //animation
+                      'rounded-md p-2 mx-3 gap-4 ': !collapsed,
+                      'rounded-full p-2 mx-3 w-10 h-10': collapsed,
+                    })}
+                  >
+                    <Link href={item.href} className='flex gap-2'>
+                      {item.icon} <span>{!collapsed && item.label}</span>
+                    </Link>
+                  </li>
+                );
+              })
+            }
           </ul>
         </nav>
       </div>
