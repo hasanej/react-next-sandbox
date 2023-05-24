@@ -1,4 +1,4 @@
-import 'src/app/globals.css'
+import 'src/app/globals.css';
 
 import { Header } from 'src/app/components/Header';
 import { Footer } from 'src/app/components/Footer';
@@ -9,13 +9,13 @@ export const metadata = {
 }
 
 export default function LoginLayout({
-  children,
+  children
 }: {
   children: React.ReactNode
 }) {
   return (
     <section>
-      <Header headerTitle={metadata.title} />
+      <Header title={metadata.title} />
       {children}
       <Footer />
     </section>
