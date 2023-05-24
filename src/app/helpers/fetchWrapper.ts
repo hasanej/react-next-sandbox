@@ -1,9 +1,3 @@
-import getConfig from 'next/config';
-
-// import { userService } from 'services';
-
-// const { publicRuntimeConfig } = getConfig();
-
 export const fetchWrapper = {
   get: request('GET'),
   post: request('POST'),
@@ -15,6 +9,7 @@ function request(method) {
   return (url, body) => {
     const requestOptions = {
       method,
+      // Uncomment this to apply headers param
       // headers: authHeader(url)
     };
 
@@ -27,10 +22,8 @@ function request(method) {
   }
 }
 
-// helper functions
-
+// Uncomment this to apply headers param
 // function authHeader(url) {
-//   // return auth header with jwt if user is logged in and request is to the api url
 //   const user = userService.userValue;
 //   const isLoggedIn = user?.token;
 //   const isApiUrl = url.startsWith(publicRuntimeConfig.apiUrl);
@@ -46,16 +39,11 @@ async function handleResponse(response) {
   const isJson = response.headers?.get('content-type')?.includes('application/json');
   const data = isJson ? await response.json() : null;
 
-  // check for error response
   if (!response.ok) {
     if ([401, 403].includes(response.status)) {
-        // auto logout if 401 Unauthorized or 403 Forbidden response returned from api
-        // userService.logout();
-
         // Handle error
     }
 
-    // get error message from body or default to response status
     const error = (data && data.message) || response.statusText;
     return Promise.reject(error);
   }
