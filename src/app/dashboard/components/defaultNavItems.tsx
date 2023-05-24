@@ -20,7 +20,7 @@ export const DefaultNavItems: NavItem[] = [
   },
   {
     label: 'User List',
-    href: '/userList',
+    href: '/dashboard/userList',
     icon: <UserGroupIcon className='w-6 h-6' />
   },
   {
