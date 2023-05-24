@@ -1,22 +1,17 @@
 'use client'
 
-import { useSelector } from 'react-redux';
+import { useAppSelector } from 'src/app/redux/hooks';
 
-'use client'
-
-import { useSelector } from 'react-redux';
-import { selectUserListState } from 'src/app/store/userListSlice';
-
-export default function Dashboard() {
-  const userListState = useSelector(selectUserListState);
+export default function UserList() {
+  const userList = useAppSelector((state) => state.userListReducer.value);
 
   return (
     <div className='min-h-screen'>
-      <div className='h-56 grid grid-cols-3 gap-4 content-start'>
+      <div className='h-56 grid grid-cols-3 gap-4 content-start p-3'>
         {
-          userListState.map(user => (
-            <div key={user.id}>
-              {user.name}
+          userList.map(user => (
+            <div key={user.id} className='bg-white p-2 rounded-md'>
+              <p className='text-center text-black'>{user.name}</p>
             </div>
           ))
         }

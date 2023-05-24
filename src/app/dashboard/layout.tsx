@@ -18,13 +18,13 @@ export default function DashboardLayout(props: PropsWithChildren) {
   return (
     <div
       className={classNames({
-        // 👇 Use grid layout
+        // Use grid layout
         'grid min-h-screen': true,
-        // 👇 Toggle the width of the sidebar depending on the state
+        // Toggle the width of the sidebar depending on the state
         'grid-cols-sidebar': !collapsed,
         'grid-cols-sidebar-collapsed': collapsed,
-        // 👇 Transition animation classes
-        'transition-[grid-template-columns] duration-300 ease-in-out': true,
+        // Transition animation classes
+        'transition-[grid-template-columns] duration-300 ease-in-out': true
       })}
     >
       {/* Sidebar */}
