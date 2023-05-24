@@ -20,14 +20,19 @@ export default function Register() {
 
   const [isRegistrationFailed, setRegistrationFailed] = useState(null);
   const [registrationMessage, setRegistrationMessage] = useState("");
+
+  interface FormData {
+    email: string;
+    password: string;
+  };
   
-  function onSubmit({ email, password }) {
-    return userService.register(email, password)
-      .then((res) => {
+  function onSubmit(props: FormData) {
+    return userService.register(props.email, props.password)
+      .then(() => {
         setRegistrationFailed(false);
         setRegistrationMessage("Registration success, you can now proceed to Login page");
       })
-      .catch((error) => {
+      .catch(() => {
         setRegistrationFailed(true);
         setRegistrationMessage("Registration failed");
       });

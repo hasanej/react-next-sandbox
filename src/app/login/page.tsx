@@ -23,13 +23,18 @@ export default function Login() {
 
   const [isLoginFailed, setLoginFailed] = useState(false);
   const [loginFailedMessage, setLoginFailedMessage] = useState("");
+
+  interface FormData {
+    email: string;
+    password: string;
+  };
   
-  function onSubmit({ email, password }) {
-    return userService.login(email, password)
-      .then((res) => {
+  function onSubmit(props: FormData) {
+    return userService.login(props.email, props.password)
+      .then(() => {
         getUserData();
       })
-      .catch((error) => {
+      .catch(() => {
         setLoginFailed(true);
         setLoginFailedMessage("User not found");
       });
@@ -37,11 +42,11 @@ export default function Login() {
 
   function getUserData() {
     return userService.getUserData()
-      .then((res) => {
+      .then(() => {
         setLoginFailed(false);
         router.push('/dashboard');
       })
-      .catch((error) => {
+      .catch(() => {
         setLoginFailed(true);
         setLoginFailedMessage("User not found");
       });
