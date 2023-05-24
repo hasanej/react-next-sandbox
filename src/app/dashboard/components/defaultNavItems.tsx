@@ -25,12 +25,12 @@ export const DefaultNavItems: NavItem[] = [
   },
   {
     label: 'Projects',
-    href: '/projects',
+    href: '/dashboard/projects',
     icon: <FolderIcon className='w-6 h-6' />
   },
   {
     label: 'Calendar',
-    href: '/calendar',
+    href: '/dashboard/calendar',
     icon: <CalendarIcon className='w-6 h-6' />
   }
 ];
